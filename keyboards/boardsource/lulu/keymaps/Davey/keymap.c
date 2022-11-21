@@ -13,6 +13,57 @@ enum layers {
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 
+enum custom_keycodes {
+  TPANE_0,
+  TPANE_1 = SAFE_RANGE,
+  TPANE_2,
+  TPANE_3,
+  TPANE_4,
+  TPANE_5,
+  ES6,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case TPANE_0:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"0");
+      }
+    break;
+    case TPANE_1:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"1");
+      }
+    break;
+    case TPANE_2:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"2");
+      }
+    break;
+    case TPANE_3:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"3");
+      }
+    break;
+    case TPANE_4:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"4");
+      }
+    break;
+    case TPANE_5:
+      if (record->event.pressed) {
+        SEND_STRING(SS_RCTL("a")"5");
+      }
+    break;
+    case ES6:
+      if (record->event.pressed) {
+        SEND_STRING("() => {");
+      }
+    break;
+  };
+  return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  
 /* QWERTY
@@ -52,10 +103,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  RGB_MOD, RGB_RMOD,RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,                   _______, _______, _______,_______, _______, _______,
+  TPANE_0, TPANE_1, TPANE_2, TPANE_3, TPANE_4, TPANE_5,                   RGB_MOD, RGB_RMOD,RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,
   _______, _______, KC_PLUS, KC_LCBR, KC_RCBR, _______,                   _______, _______, _______,_______, _______, _______,
-  _______, _______, KC_EQL,  KC_LBRC, KC_RBRC, _______,                   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,_______, _______,
-  _______, _______, _______, KC_LPRN, KC_RPRN, _______, RGB_TOG, _______, _______, _______, _______,_______, _______, _______,
+  _______, _______, KC_EQL,  KC_LPRN, KC_RPRN, _______,                   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,_______, _______,
+  _______, _______, _______, KC_LBRC, KC_RBRC, _______, RGB_TOG, _______, _______, _______, _______,ES6,     _______, _______,
                              KC_LCTL, KC_LALT, KC_LGUI, KC_NO,   KC_ENT,  KC_DEL,  KC_RCTL, RAISE
 ),
 /* RAISE
