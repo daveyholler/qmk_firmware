@@ -105,8 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT(
   TPANE_0, TPANE_1, TPANE_2, TPANE_3, TPANE_4, TPANE_5,                   RGB_MOD, RGB_RMOD,RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD,
   _______, _______, KC_PLUS, KC_LCBR, KC_RCBR, _______,                   _______, _______, _______,_______, _______, _______,
-  _______, _______, KC_EQL,  KC_LPRN, KC_RPRN, _______,                   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,_______, _______,
-  _______, _______, _______, KC_LBRC, KC_RBRC, _______, RGB_TOG, _______, _______, _______, _______,ES6,     _______, _______,
+  _______, _______, KC_EQL,  KC_LPRN, KC_RPRN, _______,                   KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT,_______, KC_VOLU,
+  _______, _______, _______, KC_LBRC, KC_RBRC, _______, RGB_TOG, _______, _______, _______, _______,ES6,     _______, KC_VOLD,
                              KC_LCTL, KC_LALT, KC_LGUI, KC_NO,   KC_ENT,  KC_DEL,  KC_RCTL, RAISE
 ),
 /* RAISE
